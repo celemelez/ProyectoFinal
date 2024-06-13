@@ -4,38 +4,55 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 public class Cine extends Pelicula implements ICine{
 	
 	ArrayList<Pelicula>  cartelera = new ArrayList<Pelicula>();
-	Cliente clientes[];
+	ArrayList<Cliente> cliente = new ArrayList<Cliente>();
 	
 		
 	public Cine() {
 		super();
 	}
 	
+	
+	
 	public Cine(String nombre, String apellido, int edad, int cantidadPeliculas, int duracion, String titulo,
 			int edadPermitida, String categoria, Date fechaDeEstreno, ArrayList<Pelicula> cartelera,
-			Cliente[] clientes) {
+			ArrayList<Cliente> cliente) {
 		super(nombre, apellido, edad, cantidadPeliculas, duracion, titulo, edadPermitida, categoria, fechaDeEstreno);
 		this.cartelera = cartelera;
-		this.clientes = clientes;
+		this.cliente = cliente;
 	}
-
 	
+
+
+
 	public ArrayList<Pelicula> getCartelera() {
 		return cartelera;
 	}
 
+
+
+	public ArrayList<Cliente> getCliente() {
+		return cliente;
+	}
+
+
+
 	public void setCartelera(ArrayList<Pelicula> cartelera) {
 		this.cartelera = cartelera;
 	}
-	public Cliente[] getClientes() {
-		return clientes;
+
+
+
+	public void setCliente(ArrayList<Cliente> cliente) {
+		this.cliente = cliente;
 	}
-	public void setClientes(Cliente[] clientes) {
-		this.clientes = clientes;
-	}
+
+
+
 	public int buscarPeliculasPorNombre(String nombre) {
 		int posicion=-1;
 		int i=0;
@@ -56,17 +73,10 @@ public class Cine extends Pelicula implements ICine{
 	public void agregarPelicula(Pelicula pelicula) {
 		cartelera.add(pelicula);
 	}
-     private void verificarPromocion(Cliente cliente) {
+     public void verificarPromocion(Cliente cliente) {
     	 if (cliente.getCantidadPeliculasVistas() >= 3) {
-    		 enviarAlerta(cliente);
+    		 JOptionPane.showMessageDialog(null, cliente.getNombre() + "Alerta De Descuento");
     	}
 	}
-	private void enviarAlerta(Cliente cliente) {
-		// TODO Auto-generated method stub	
-	}
-	@Override
-	public String getCliente() {
-		// TODO Auto-generated method stub
-		return null;
-	}	
+	
 }

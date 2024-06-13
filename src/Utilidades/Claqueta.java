@@ -36,10 +36,19 @@ public class Claqueta {
             String apellido = scanner.nextLine();
             System.out.print("Edad: ");
             int edad = Integer.parseInt(scanner.nextLine());
-            
             Pelicula pelicula = new Pelicula(nombre, apellido, edad,12, duracion, titulo, permitida, categoria, new Date());
             cine.agregarPelicula(pelicula);
+            
         }
+		 System.out.print("Nombre: ");
+         String nombre = scanner.nextLine();
+         System.out.print("Apellido: ");
+         String apellido = scanner.nextLine();
+         System.out.print("Cantidad de Peliculas Vista: ");
+         int cantidad = Integer.parseInt(scanner.nextLine());
+        Cliente cli = new Cliente(nombre, apellido, 20, cantidad, 9);
+        cine.verificarPromocion(cli);
+
 
 
       /*  Cine cine = new Cine("Nombre", "Apellido", 30, new Persona(), 0, 0, "", new Director(), 0, "", new Date(), peliculas, new Cliente[0]);
